@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Geocoding App</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <script id="studentTemplate" type="text/template">
+            <ul>
+                <li><%= direccion_procedencia.calle %></li>
+                <li><%= direccion_procedencia.comuna %></li>
+                <li><%= direccion_procedencia.ciudad %></li>
+            </ul>
+        </script>
+
+
+        <div class="container">
+            <div id="student-list"></div>
+        </div>
+
+        <script src="js/lib/jquery.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/underscore.js"></script>
+        <script src="js/lib/backbone.js"></script>
+
+        <script src="js/models/student.js"></script>
+        <script src="js/collections/students.js"></script>
+        <script src="js/views/student.js"></script>
+        <script src="js/views/students.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
