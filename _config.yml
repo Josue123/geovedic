@@ -5,6 +5,7 @@ lsi: false
 markdown: rdiscount
 pygments: true
 permalink: pretty
+baseurl: "http://pnavarrc.github.io/geovedic"
 
 project:
     name: Geovedic

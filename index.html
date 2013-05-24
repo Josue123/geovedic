@@ -62,8 +62,8 @@ title: Layout
 
 <script>
     var model = geovedic.Model()
-        .students('{{ site.url }}/data/studentsudd.json')
-        .comunas('{{ site.url }}/data/comunas.json'),
+        .students('data/studentsudd.json')
+        .comunas('data/comunas.json'),
     legend = geovedic.Legend(),
     player = geovedic.Player()
         .domain(d3.range(2000, 2014))
