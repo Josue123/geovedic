@@ -24,3 +24,7 @@ http://bost.ocks.org/mike/map/
 Colorbrewer 2.0
 Color Advice on Maps
 http://colorbrewer2.org/
+
+Jekyll
+Static website generator
+http://jekyllrb.com/
