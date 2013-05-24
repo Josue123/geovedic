@@ -29,6 +29,11 @@
     fill: #f2f2f2;
 }
 
+.mapinfo-text {
+  font-size: 10px;
+  fill: #aaa;
+}
+
 .communes {
     stroke: #333;
     stroke-width: 0.5;
@@ -38,6 +43,14 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 8px;
     fill: #333;
+}
+
+.mapinfo-bg {
+  fill: #333;
+}
+
+.hidden {
+  fill-opacity: 0.0;
 }
 
 
