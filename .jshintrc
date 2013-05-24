@@ -11,6 +11,8 @@
 	"globals": {
 		"$": false,
 		"d3": false,
+		"topojson": false,
+		"colorbrewer": false,
 		"Backbone": false,
 		"_": false,
 		"console": false,

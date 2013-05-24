@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Geocoding App</title>
+
+        <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ site.url }}/css/main.css" rel="stylesheet" >
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>{{ title }}</h1>
+            <div id="chart"></div>
+        </div>
+
+        <script src="{{ site.url }}/js/lib/jquery.js"></script>
+        <script src="{{ site.url }}/js/lib/bootstrap.min.js"></script>
+        <script src="{{ site.url }}/js/lib/underscore.js"></script>
+        <script src="{{ site.url }}/js/lib/d3.v3.min.js"></script>
+        <script src="{{ site.url }}/js/lib/topojson.v1.min.js"></script>
+        <script src="{{ site.url }}/js/lib/colorbrewer.js"></script>
+
+        {{content}}
+
+    </body>
+</html>
