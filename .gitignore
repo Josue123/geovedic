@@ -1,2 +1,6 @@
 # Data files
-data/*
+data/students_udd-full.json
+data/students_udd.csv
+
+# Jekyll generated files
+_site/*

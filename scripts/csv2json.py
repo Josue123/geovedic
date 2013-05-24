@@ -12,6 +12,7 @@ class CSVReader(object):
 
         # Read the csv file and create the csv parser
         self.reader = csv.reader(open(csvpath, mode), delimiter=delimiter)
+        self.order = 0
 
         # Skip the header line
         if header:
@@ -31,16 +32,14 @@ class CSVReader(object):
         # Read the next record in the csv file and remove all the trailing
         # whitespaces
         row = map(lambda x: x.strip(), self.reader.next())
-
+        self.order += 1
         # Create a dict with the desired data structure
         return {
+            'order': self.order,
             'sede': row[0],
             'carrera': {'codigo': row[1], 'nombre': row[2]},
             'ingreso': int(row[4]),
-            'promocion': int(row[5]),
-            'direccion_procedencia': {'calle':  row[7], 'ciudad': row[8], 'comuna': row[9]},
-            'direccion_actual': {'calle':  row[10], 'ciudad': row[11], 'comuna': row[12]},
-            'estado_academico': row[13],
+            'direccion_procedencia': {'comuna': row[9]},
         }
 
 
@@ -54,12 +53,14 @@ if __name__ == '__main__':
 
     # Read and parse each line of the csv file, storing the records
     # as dict objects
-    reader = CSVReader(args.input)
+
     data = list()
+    reader = CSVReader(args.input)
+
     for item in reader:
         data.append(item)
 
     # Save the processed data to json
     json_file = open(args.output, 'w')
-    json.dump(data, json_file, sort_keys=True, indent=2)
+    json.dump(data, json_file)
     json_file.close()

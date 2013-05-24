@@ -1,15 +1,12 @@
 safe: true
 source: .
 destination: _site
-auto: true
 lsi: false
-server: true
 markdown: rdiscount
 pygments: true
 permalink: pretty
-url: "http://rodrigomoya.github.io/citisent-datavis"
 
 project:
-    name: Citisent Datavis
-    tagline: Data Visualizations for Citisent
-    github: "https://github.com/rodrigomoya/citisent-datavis"
+    name: Geovedic
+    tagline: Geographic Distribution of Students of UDD
+    github: "https://github.com/pnavarrc/geovedic"

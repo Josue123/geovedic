@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Geocoding App</title>
+
+        <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ site.url }}/css/main.css" rel="stylesheet" >
+    </head>
+    <body>
+
+        <script src="{{ site.url }}/js/lib/jquery.js"></script>
+        <script src="{{ site.url }}/js/lib/bootstrap.min.js"></script>
+        <script src="{{ site.url }}/js/lib/underscore.js"></script>
+        <script src="{{ site.url }}/js/lib/backbone.js"></script>
+        <script src="{{ site.url }}/js/lib/d3.v3.min.js"></script>
+        <script src="{{ site.url }}/js/lib/topojson.v1.min.js"></script>
+
+        <!-- Geovedic Application -->
+        <script src="{{ site.url }}/js/model.js"></script>
+        <script src="{{ site.url }}/js/chart.js"></script>
+
+        {{content}}
+    </body>
+</html>
