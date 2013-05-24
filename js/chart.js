@@ -88,15 +88,10 @@ geovedic.SmallChlorophlet = function() {
                 .attr('y', 20)
                 .text(data);
 
-            svg.append('rect')
-                .classed('map-frame', true)
-                .attr('width', width)
-                .attr('height', height)
-                .attr('fill-opacity', 0.0)
-                .attr('stroke', '#bbb')
-                .attr('stroke-width', 1);
-
-
+            svg.append('g')
+                .classed('mapinfo', true)
+                .append('rect')
+                .classed('mapinfo-bg', true);
         });
     }
 
@@ -133,10 +128,14 @@ geovedic.SmallChlorophlet = function() {
                 .attr('width', width)
                 .attr('height', height);
 
-            svg.select('rect.map-frame')
-                .attr('width', width - 1)
-                .attr('height', height - 1);
+            //
+            var ginfo = svg.select('g.mapinfo')
+                .attr('transform', 'translate(0, ' + (height - 20) + ')');
 
+            ginfo.select('rect.mapinfo-bg')
+                .attr('width', width)
+                .attr('height', 20)
+                .classed('hidden', true);
 
             // Add the count of each commune
             countComuna.forEach(function(d) {
@@ -163,7 +162,35 @@ geovedic.SmallChlorophlet = function() {
                         }
                         return color;
                     })
-                    .classed('communes', true);
+                    .classed('communes', true)
+                    .on('mouseover', function(d) {
+
+                        var data = {
+                            comuna: d.properties.comuna,
+                            perc: 0.0,
+                            count: 0
+                        },
+                        info = _.template('<%= comuna %> : <%= perc %>% (<%= count %> alumnos)'),
+                        item = countComuna.filter(function(c) {
+                            return d.properties.comuna.toLowerCase() == c.comuna;
+                        });
+
+                        if (item.length > 0) {
+                            data.perc = Math.round(item[0].perc * 10) / 10,
+                            data.count = item[0].count;
+                        }
+
+                        ginfo.select('rect.mapinfo-bg').classed('hidden', false),
+                        ginfo.append('text')
+                            .attr('x', 10)
+                            .attr('y', 14)
+                            .text(info(data))
+                            .classed('mapinfo-text', true);
+                    })
+                    .on('mouseout', function(d) {
+                        ginfo.selectAll('text').remove(),
+                        ginfo.select('rect.mapinfo-bg').classed('hidden', true);
+                    });
 
         });
     };
